@@ -36,7 +36,7 @@ def shuffleDeck():
 	for suite in ["Clubs", "Diamonds", "Hearts", "Spades"]:
 		for num in ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"]:
 			deck.append(Card(num, suite))
-	random.shuffle(deck)
+			random.shuffle(deck)
 	return deck 
 
 
