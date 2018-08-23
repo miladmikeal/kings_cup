@@ -6,10 +6,14 @@ class Participant:
 		self.gender = gender
 		self.cards = []
 	def drawCard(self):
-		self.cards = deck.pop()
+		self.cards += deck.pop()
 	def showCards(self):
 		print(self.name) 
-		print(self.cards) 
+		print(self.cards)
+	def __str__(self):
+		return self.name
+	def __repr__(self):
+		return self.name
 
 
 class Card:
@@ -21,6 +25,8 @@ class Card:
 	def getSuite(self):
 		return self.suite
 	def __str__(self):
+		return ("{0} of {1}".format(self.value, self.suite))
+	def __repr__(self):
 		return ("{0} of {1}".format(self.value, self.suite))
 
 deck = []
@@ -49,5 +55,7 @@ else:
 		gender = input("Player %s's Gender: " %player)
 		participants.append(Participant(name, gender))
 
-print(participants)
+deck = shuffleDeck()
+
 print(deck)
+print(participants)
