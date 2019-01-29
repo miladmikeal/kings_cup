@@ -78,7 +78,7 @@ print("\n")
 
 i = 0
 while len(deck) != 0:
-	#input("Press Enter to continue...")
+	input("Press Enter to continue...")
 	participants[i % numPlayers].drawCard()
 	i += 1
 	print("\n")
