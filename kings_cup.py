@@ -5,7 +5,7 @@ deck = []
 # Empty participants list
 participants = []
 
-# Participant class implemenation 
+# Participant class implemenation
 class Participant:
 	def __init__(self, name):
 		self.name = name
@@ -18,12 +18,13 @@ class Participant:
 	def getName(self):
 		return self.name
 	def showCards(self):
-		print(self.name) 
+		print(self.name)
 		print(self.cards)
 	def __str__(self):
 		return self.name
 	def __repr__(self):
 		return self.name
+
 
 # Card class implemenation
 class Card:
@@ -39,6 +40,8 @@ class Card:
 	def __repr__(self):
 		return ("{0} of {1}".format(self.value, self.suite))
 
+
+
 # Function to shuffle deck
 def shuffleDeck():
 	# Loop through suits
@@ -49,7 +52,8 @@ def shuffleDeck():
 			deck.append(Card(num, suit))
 			# Shuffle deck
 			random.shuffle(deck)
-	return deck 
+	return deck
+
 
 # Get number of players
 players = input("Enter the number of players: ")
@@ -85,9 +89,11 @@ while len(deck) != 0 and numKings != 4:
 	input("Press Enter to continue...")
 	# Call drawCard method for players continuously
 	card = participants[i % numPlayers].drawCard()
+	# Pour into kings cup if card is king
 	if card.getValue() is "King":
 		print("Pour into the Kings Cup!")
 		numKings += 1
+	# If 4th King drawn, player must drink Kings Cup
 	if numKings == 4:
 		print("{0}, DRINK THE KINGS CUP!".format(participants[i % numPlayers].getName()))
 
@@ -97,3 +103,4 @@ while len(deck) != 0 and numKings != 4:
 # Show everyone's cards at the end
 for j in range(numPlayers):
 	participants[j].showCards()
+
