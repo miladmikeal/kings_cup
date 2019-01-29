@@ -7,13 +7,16 @@ participants = []
 
 # Participant class implemenation 
 class Participant:
-	def __init__(self, name, gender):
+	def __init__(self, name):
 		self.name = name
-		self.gender = gender
 		self.cards = []
 	def drawCard(self):
-		self.cards.append(deck.pop())
+		card = deck.pop()
+		self.cards.append(card)
 		print("{0} drew a {1}".format(self.name, self.cards[-1]))
+		return card
+	def getName(self):
+		return self.name
 	def showCards(self):
 		print(self.name) 
 		print(self.cards)
@@ -66,10 +69,9 @@ else:
 	for player in range(numPlayers):
 		player += 1
 		# Input name $ gender for each player
-		name = input("Player %s's Name: " %player) 
-		gender = input("Player %s's Gender: " %player)
+		name = input("Player %s's Name: " %player)
 		# Add participant to participants list
-		participants.append(Participant(name, gender))
+		participants.append(Participant(name))
 
 shuffleDeck()
 
@@ -77,11 +79,21 @@ print("\n")
 print("\n")
 
 i = 0
-while len(deck) != 0:
+numKings = 0
+# Loop until deck is empty
+while len(deck) != 0 and numKings != 4:
 	input("Press Enter to continue...")
-	participants[i % numPlayers].drawCard()
+	# Call drawCard method for players continuously
+	card = participants[i % numPlayers].drawCard()
+	if card.getValue() is "King":
+		print("Pour into the Kings Cup!")
+		numKings += 1
+	if numKings == 4:
+		print("{0}, DRINK THE KINGS CUP!".format(participants[i % numPlayers].getName()))
+
 	i += 1
 	print("\n")
 
+# Show everyone's cards at the end
 for j in range(numPlayers):
 	participants[j].showCards()
