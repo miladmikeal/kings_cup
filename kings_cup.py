@@ -1,5 +1,10 @@
 import random
 
+# Empty deck list
+deck = []
+# Empty participants list
+participants = []
+
 # Participant class implemenation 
 class Participant:
 	def __init__(self, name, gender):
@@ -7,7 +12,8 @@ class Participant:
 		self.gender = gender
 		self.cards = []
 	def drawCard(self):
-		self.cards += deck.pop()
+		self.cards.append(deck.pop())
+		print("{0} drew a {1}".format(self.name, self.cards[-1]))
 	def showCards(self):
 		print(self.name) 
 		print(self.cards)
@@ -29,11 +35,6 @@ class Card:
 		return ("{0} of {1}".format(self.value, self.suite))
 	def __repr__(self):
 		return ("{0} of {1}".format(self.value, self.suite))
-
-# Empty deck list
-deck = []
-# Empty participants list
-participants = []
 
 # Function to shuffle deck
 def shuffleDeck():
@@ -70,7 +71,17 @@ else:
 		# Add participant to participants list
 		participants.append(Participant(name, gender))
 
-deck = shuffleDeck()
+shuffleDeck()
 
-print(deck)
-print(participants)
+print("\n")
+print("\n")
+
+i = 0
+while len(deck) != 0:
+	#input("Press Enter to continue...")
+	participants[i % numPlayers].drawCard()
+	i += 1
+	print("\n")
+
+for j in range(numPlayers):
+	participants[j].showCards()
