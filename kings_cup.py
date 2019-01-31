@@ -88,6 +88,7 @@ class Card:
 
 # Get number of players
 players = input("Enter the number of players: ")
+
 # Convert to integer
 numPlayers = int(players)
 
@@ -95,10 +96,12 @@ numPlayers = int(players)
 if numPlayers < 3:
 	print(players)
 	print("Not enough players.")
+
 # If num players more than 12
 elif numPlayers > 12:
 	print(players)
 	print("That's too many players.")
+
 else:
 	# Loop through number of players
 	for player in range(numPlayers):
@@ -112,20 +115,24 @@ else:
 deck = Deck()
 deck.shuffle_deck()
 
-print("\n")
-print("\n")
+print()
+print()
 
 i = 0
 numKings = 0
+
 # Loop until deck is empty
 while len(deck.get_deck()) != 0 and numKings != 4:
 	input("Press Enter to continue...")
+
 	# Call drawCard method for players continuously
 	card = participants[i % numPlayers].draw_card()
 	# Pour into kings cup if card is king
+
 	if card.get_value() is "King":
 		print("Pour into the Kings Cup!")
 		numKings += 1
+
 	# If 4th King drawn, player must drink Kings Cup
 	if numKings == 4:
 		print("{0}, DRINK THE KINGS CUP!".format(participants[i % numPlayers].get_name()))
