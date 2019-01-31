@@ -1,5 +1,3 @@
-from Deck import Deck
-
 class Participant:
 	"""Represent a participant in the game. Participants can
 	draw cards, and show cards."""
