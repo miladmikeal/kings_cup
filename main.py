@@ -3,15 +3,13 @@ from Participant import Participant
 
 
 def main():
-	# Initialize and shuffle deck
+
 	deck = Deck()
-	# Empty participants list
+
 	participants = []
 
-	# Get number of players
 	players = input("Enter the number of players: ")
 
-	# Convert to integer
 	numPlayers = int(players)
 
 	# If num players less than 3
@@ -59,7 +57,7 @@ def main():
 			print("{0}, DRINK THE KINGS CUP!".format(participants[i % numPlayers].get_name()))
 
 		i += 1
-		print("\n")
+		print()
 
 	# Show everyone's cards at the end
 	for j in range(numPlayers):
