@@ -28,13 +28,13 @@ class Card:
 			suit = str(u'\u2663')
 
 		if color == "red":
-			cprint('┌───────┐', color, file=sys.stderr)
+			cprint('┌───────┐', color, attrs=['bold'], file=sys.stderr)
 			cprint(f'| {self.value[0]:<2}    |', color, attrs=['bold'], file=sys.stderr)
-			cprint('|       |', color, file=sys.stderr)
+			cprint('|       |', color, attrs=['bold'], file=sys.stderr)
 			cprint(f'|   {suit}   |', color, attrs=['bold'], file=sys.stderr)
-			cprint('|       |', color, file=sys.stderr)
+			cprint('|       |', color, attrs=['bold'], file=sys.stderr)
 			cprint(f'|    {self.value[0]:>2} |', color, attrs=['bold'], file=sys.stderr)
-			cprint('└───────┘', color, file=sys.stderr)
+			cprint('└───────┘', color, attrs=['bold'], file=sys.stderr)
 		else:
 			print('┌───────┐')
 			print(f'| {self.value[0]:<2}    |')
