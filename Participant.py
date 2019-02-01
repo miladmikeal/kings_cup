@@ -14,7 +14,7 @@ class Participant:
 		"""Returns a card from the deck and displays the card."""
 		card = deck.get_deck().pop()
 		self.cards.append(card)
-		print("{0} drew a {1}".format(self.name, card))
+		print(f"{self.name} drew a {card}")
 		card.print_card()
 		return card
 

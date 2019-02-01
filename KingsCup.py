@@ -36,7 +36,7 @@ class KingsCup:
             for player in range(self.num_players):
                 player += 1
                 # Input name $ gender for each player
-                name = input("Player %s's Name: " % player)
+                name = input(f"Player {player}'s Name: ")
                 # Add participant to participants list
                 self.participants.append(Participant(name))
 
@@ -67,7 +67,7 @@ class KingsCup:
 
             # If 4th King drawn, player must drink Kings Cup
             if num_kings == 4:
-                print("{0}, DRINK THE KINGS CUP!".format(self.participants[i % self.num_players].get_name()))
+                print(f"{self.participants[i % self.num_players].get_name()}, DRINK THE KINGS CUP!")
 
             i += 1
             print()

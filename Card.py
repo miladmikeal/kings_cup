@@ -54,7 +54,7 @@ class Card:
 		return self.suite
 
 	def __str__(self):
-		return ("{0} of {1}".format(self.value, self.suite))
+		return (f"{self.value} of {self.suite}")
 
 	def __repr__(self):
-		return ("{0} of {1}".format(self.value, self.suite))
+		return (f"{self.value} of {self.suite}")
