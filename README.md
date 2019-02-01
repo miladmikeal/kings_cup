@@ -5,7 +5,7 @@ Kings Cup is a drinking game that uses cards. Each card drawn correlates to a sp
 https://en.wikipedia.org/wiki/Kings_(game)
 
 
-#Usage:
+# Usage:
 
 $pip install pipenv or pip3 install pipenv
 
