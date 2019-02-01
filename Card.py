@@ -6,85 +6,44 @@ class Card:
 	"""Represent a single card in a deck. Value and suite can be returned."""
 
 	def __init__(self, value, suite):
-		"""Initializes the value and suite of the card."""
+		"""Initialize the value and suite of the card."""
 		self.value = value
 		self.suite = suite
 
-	def display_card_art(self):
-		"""Displays the card with ASCII art and changes color if necessary."""
-		Art = ""
+	def print_card(self):
+		"""Display the card with unicode and formatting."""
 		color = ""
+		suit = ""
+		if self.suite == "Diamonds":
+			suit = str(u'\u2666')
+			color = "red"
 
-		if self.value == "Ace":
-			Art = text2art("A", font='block', chr_ignore=True)
-			if self.suite == "Diamonds" or self.suite == "Hearts":
-				color = "red"
+		elif self.suite == "Hearts":
+			suit = str(u'\u2665')
+			color = "red"
 
-		elif self.value == "2":
-			Art = text2art("2", font='block', chr_ignore=True)
-			if self.suite == "Diamonds" or self.suite == "Hearts":
-				color = "red"
+		elif self.suite == "Spades":
+			suit = str(u'\u2660')
 
-		elif self.value == "3":
-			Art = text2art("3", font='block', chr_ignore=True)
-			if self.suite == "Diamonds" or self.suite == "Hearts":
-				color = "red"
-
-		elif self.value == "4":
-			Art = text2art("4", font='block', chr_ignore=True)
-			if self.suite == "Diamonds" or self.suite == "Hearts":
-				color = "red"
-
-		elif self.value == "5":
-			Art = text2art("5", font='block', chr_ignore=True)
-			if self.suite == "Diamonds" or self.suite == "Hearts":
-				color = "red"
-
-		elif self.value == "6":
-			Art = text2art("6", font='block', chr_ignore=True)
-			if self.suite == "Diamonds" or self.suite == "Hearts":
-				color = "red"
-
-		elif self.value == "7":
-			Art = text2art("7", font='block', chr_ignore=True)
-			if self.suite == "Diamonds" or self.suite == "Hearts":
-				color = "red"
-
-		elif self.value == "8":
-			Art = text2art("8", font='block', chr_ignore=True)
-			if self.suite == "Diamonds" or self.suite == "Hearts":
-				color = "red"
-
-		elif self.value == "9":
-			Art = text2art("9", font='block', chr_ignore=True)
-			if self.suite == "Diamonds" or self.suite == "Hearts":
-				color = "red"
-
-		elif self.value == "10":
-			Art = text2art("T", font='block', chr_ignore=True)
-			if self.suite == "Diamonds" or self.suite == "Hearts":
-				color = "red"
-
-		elif self.value == "Jack":
-			Art = text2art("J", font='block', chr_ignore=True)
-			if self.suite == "Diamonds" or self.suite == "Hearts":
-				color = "red"
-
-		elif self.value == "Queen":
-			Art = text2art("Q", font='block', chr_ignore=True)
-			if self.suite == "Diamonds" or self.suite == "Hearts":
-				color = "red"
-
-		elif self.value == "King":
-			Art = text2art("K", font='block', chr_ignore=True)
-			if self.suite == "Diamonds" or self.suite == "Hearts":
-				color = "red"
-
+		elif self.suite == "Clubs":
+			suit = str(u'\u2663')
 
 		if color == "red":
-			cprint(Art, color, attrs=['bold'], file=sys.stderr)
+			cprint('┌───────┐', color, file=sys.stderr)
+			cprint(f'| {self.value[0]:<2}    |', color, attrs=['bold'], file=sys.stderr)
+			cprint('|       |', color, file=sys.stderr)
+			cprint(f'|   {suit}   |', color, attrs=['bold'], file=sys.stderr)
+			cprint('|       |', color, file=sys.stderr)
+			cprint(f'|    {self.value[0]:>2} |', color, attrs=['bold'], file=sys.stderr)
+			cprint('└───────┘', color, file=sys.stderr)
 		else:
-			print(Art)
+			print('┌───────┐')
+			print(f'| {self.value[0]:<2}    |')
+			print('|       |')
+			print(f'|   {suit}   |')
+			print('|       |')
+			print(f'|    {self.value[0]:>2} |')
+			print('└───────┘')
 
 
 	def get_value(self):

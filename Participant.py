@@ -15,7 +15,7 @@ class Participant:
 		card = deck.get_deck().pop()
 		self.cards.append(card)
 		print("{0} drew a {1}".format(self.name, card))
-		card.display_card_art()
+		card.print_card()
 		return card
 
 
