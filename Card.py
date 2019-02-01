@@ -1,6 +1,5 @@
 import sys
 from termcolor import cprint
-from art import *
 
 class Card:
 	"""Represent a single card in a deck. Value and suite can be returned."""
