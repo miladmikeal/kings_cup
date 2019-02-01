@@ -1,3 +1,5 @@
+from Card import Card
+
 class Participant:
 	"""Represent a participant in the game. Participants can
 	draw cards, and show cards."""
@@ -7,12 +9,15 @@ class Participant:
 		self.name = name
 		self.cards = []
 
+
 	def draw_card(self, deck):
 		"""Returns a card from the deck and displays the card."""
 		card = deck.get_deck().pop()
 		self.cards.append(card)
-		print("{0} drew a {1}".format(self.name, self.cards[-1]))
+		print("{0} drew a {1}".format(self.name, card))
+		card.display_card_art()
 		return card
+
 
 	def get_name(self):
 		"""Returns the name of the participant."""
