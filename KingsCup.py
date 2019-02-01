@@ -23,11 +23,13 @@ class KingsCup:
         if self.num_players < 3:
             print(players)
             print("Not enough players. Please enter 3-12.")
+            self.get_inputs()
 
         # If num players more than 12
         elif self.num_players > 12:
             print(players)
             print("That's too many players. Please enter 3-12.")
+            self.get_inputs()
 
         else:
             # Loop through number of players
