@@ -13,5 +13,5 @@ $pipenv install
 
 $pipenv shell
 
-$python main.py
+$python run.py
 

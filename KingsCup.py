@@ -10,7 +10,6 @@ class KingsCup:
         self.participants = []
         self.num_players = 0
         self.name = "Game of Kings Cup"
-        self.get_inputs()
 
     def get_inputs(self):
         """Gets user input for number of players and names of players."""
@@ -35,7 +34,7 @@ class KingsCup:
             # Loop through number of players
             for player in range(self.num_players):
                 player += 1
-                # Input name $ gender for each player
+                # Input name for each player
                 name = input(f"Player {player}'s Name: ")
                 # Add participant to participants list
                 self.participants.append(Participant(name))
@@ -43,6 +42,8 @@ class KingsCup:
 
     def run(self):
         """Runs the game."""
+        self.get_inputs()
+
         deck = Deck()
 
         deck.shuffle_deck()
@@ -59,8 +60,8 @@ class KingsCup:
 
             # Call drawCard method for players continuously
             card = self.participants[i % self.num_players].draw_card(deck)
-            # Pour into kings cup if card is king
 
+            # Pour into kings cup if card is king
             if card.get_value() is "King":
                 print("Pour into the Kings Cup!")
                 num_kings += 1
